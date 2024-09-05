@@ -3,6 +3,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     finishButton.addEventListener('click', (event) => {
         event.preventDefault(); // Prevent form submission
+        console.log('Finish button clicked'); // Test if this line runs
+
+        // Retrieve the habit title from localStorage
+        const habitTitle = localStorage.getItem('habitTitle');
+        if (!habitTitle) {
+            console.error('Habit title not found in localStorage');
+            return;
+        }
 
         // Collect user input
         const workoutEntry = document.querySelector('.form-group');
@@ -17,14 +25,17 @@ document.addEventListener('DOMContentLoaded', () => {
         // Generate the schedule
         const schedule = generateSchedule();
 
-        // Store the schedule in localStorage
-        storeSchedule(schedule);
+        // Use the habit title as the schedule name
+        const scheduleName = habitTitle;
 
-        // Create and download the schedule document
-        downloadSchedule(schedule);
+        // Store the schedule in localStorage
+        storeSchedule(schedule, scheduleName);
 
         // Clear the stored workouts
-        localStorage.clear();
+        localStorage.removeItem('upperBodyWorkouts');
+        localStorage.removeItem('coreWorkouts');
+        localStorage.removeItem('lowerBodyWorkouts');
+        localStorage.removeItem('cardioWorkout');
 
         // Redirect to the home page after finishing
         window.location.href = '../index.html';
@@ -42,19 +53,25 @@ document.addEventListener('DOMContentLoaded', () => {
         for (let week = 1; week <= 3; week++) {
             schedule += `Week ${week}:\n`;
             schedule += `------------------------------------\n`;
+            schedule += `Remember to set the weight to be challenging but comfortable for each exercise.\n\n`;
+            schedule += `------------------------------------\n`;
 
             daysOfWeek.forEach((day, index) => {
                 schedule += `${day}:\n`;
 
                 if (day === 'Sunday') {
                     schedule += `  - Cardio: ${cardioWorkout.name} - ${cardioWorkout.value} ${cardioWorkout.unit}\n`;
-                } else if (index % 2 === 0) { // Upper Body days
+                } else if (index === 0 || index === 3) { // Upper Body days
                     upperBodyWorkouts.forEach(workout => {
-                        schedule += `  - ${workout.name}: ${workout.value} ${workout.unit}\n`;
+                        schedule += `  - Upper Body: ${workout.name}: 3 sets of ${workout.value} ${workout.unit}\n`;
+                    });
+                } else if (index === 1 || index === 4) { // Lower Body days
+                    lowerBodyWorkouts.forEach(workout => {
+                        schedule += `  - Lower Body: ${workout.name}: 3 sets of ${workout.value} ${workout.unit}\n`;
                     });
                 } else { // Core days
                     coreWorkouts.forEach(workout => {
-                        schedule += `  - ${workout.name}: ${workout.value} ${workout.unit}\n`;
+                        schedule += `  - Core: ${workout.name}: 3 sets of ${workout.value} ${workout.unit}\n`;
                     });
                 }
 
@@ -67,21 +84,9 @@ document.addEventListener('DOMContentLoaded', () => {
         return schedule;
     }
 
-    function storeSchedule(schedule) {
+    function storeSchedule(schedule, scheduleName) {
         const schedules = JSON.parse(localStorage.getItem('generatedSchedules')) || [];
-        schedules.push(schedule);
+        schedules.push({ name: scheduleName, content: schedule });
         localStorage.setItem('generatedSchedules', JSON.stringify(schedules));
-    }
-
-    function downloadSchedule(schedule) {
-        const blob = new Blob([schedule], { type: 'text/plain' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'Habit_Spark_Schedule.txt';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
     }
 });
