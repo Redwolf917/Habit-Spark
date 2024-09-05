@@ -65,30 +65,6 @@ To run the app locally, you will need:
    - View your previously generated schedules on the homepage.
    - Use the download button to save the schedule to your device or delete schedules you no longer need.
 
-## Project Structure
-
-```
-habit-spark/
-│
-├── assets/
-│   ├── css/
-│   │   └── style.css
-│   ├── js/
-│   │   ├── script.js
-│   │   └── cardio-script.js
-│   └── photos/
-│       └── Habit-Spark-Logo.svg
-│
-├── pages/
-│   ├── upper-body-workouts.html
-│   ├── core-workouts.html
-│   ├── lower-body-workouts.html
-│   └── cardio-workouts.html
-│
-├── index.html
-└── README.md
-```
-
 ## Future Enhancements
 
 - **More options for habits:** I would like to add in different kinds of habits that a user can select to start.
