@@ -104,7 +104,3 @@ Contributions are welcome! Please fork this repository, make your changes, and s
 ## Contact
 
 For any inquiries or support, please contact Mr. Alexander Davis at [xander0429@gmail.com]
-
----
-
-This README provides a clear overview of the app, instructions on how to set it up, and details on the features and future enhancements. Make sure to adjust the "Contact" section with your actual contact information and GitHub repository link.
