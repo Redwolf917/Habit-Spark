@@ -12,6 +12,7 @@
 - **Downloadable Schedules:** Users can download their generated schedules for offline access.
 - **Schedule Management:** Users can view, delete, and re-download their previously created schedules.
 - **Responsive Design:** The app is mobile-friendly, ensuring a seamless experience across different devices.
+- **A Motivational Quote:** A random motivational quote from zenquote.io is present on the home page to help spark the creative flow.
 
 ## Technologies Used
 
