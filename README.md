@@ -47,6 +47,9 @@ To run the app locally, you will need:
    open index.html
    ```
 
+4. **Alternatively, use Deployed Link:**
+   https://redwolf917.github.io/Habit-Spark/
+
 ## Usage
 
 1. **Start a New Habit:**
