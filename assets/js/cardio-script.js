@@ -2,8 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const finishButton = document.getElementById('finish-button');
 
     finishButton.addEventListener('click', (event) => {
-        event.preventDefault(); // Prevent form submission
-        console.log('Finish button clicked'); // Test if this line runs
+        event.preventDefault();
 
         // Retrieve the habit title from localStorage
         const habitTitle = localStorage.getItem('habitTitle');

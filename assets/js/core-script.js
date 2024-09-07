@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextButton = document.getElementById('next-button');
 
     nextButton.addEventListener('click', (event) => {
-        event.preventDefault(); // Prevent form submission
+        event.preventDefault();
 
         // Collect user input
         const workouts = [];
