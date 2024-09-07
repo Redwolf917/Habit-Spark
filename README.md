@@ -55,14 +55,22 @@ To run the app locally, you will need:
 1. **Start a New Habit:**
    - Click on "Spark a new Habit" on the homepage.
    - Enter a habit title and choose "Exercise" as the habit type.
+   ![Alt Text](photos/Spark-New.png "Optional Title")
+   ![Alt Text](photos/Name-and-Type.png "Optional Title")
+
 
 2. **Select Workouts:**
    - Choose exercises for upper body, core, lower body, and cardio days.
    - Enter the number of reps or duration for each workout.
+   ![Alt Text](photos/Upper.png "Optional Title")
+   ![Alt Text](photos/Core.png "Optional Title")
+   ![Alt Text](photos/Lower.png "Optional Title")
+   ![Alt Text](photos/Cardio.png "Optional Title")
 
 3. **Generate Schedule:**
    - After entering all workouts, click "Finish" to generate your 3-week schedule.
    - Your schedule will be saved locally and displayed on the homepage.
+   ![Alt Text](photos/Manage.png "Optional Title")
 
 4. **Manage Schedules:**
    - View your previously generated schedules on the homepage.
